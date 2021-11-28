@@ -26,6 +26,6 @@ object MyWeb {
    }
 
    object MyOther {
-      val ls = MyUtility.ls()
+      val ls = s"<p>${MyUtility.ls()}</p>"
    }
 }

@@ -47,7 +47,18 @@ class MainActivity : AppCompatActivity() {
         button2.setOnClickListener {
             message("")
             val label = editText.text
-            onClick("save?label=${label}")
+            val dialogBuilder = AlertDialog.Builder(this)
+            dialogBuilder.setMessage("Are you sure?")
+                .setCancelable(false)
+                .setPositiveButton("Yes") { dialog, id ->
+                    onClick("save?label=${label}")
+                }
+                .setNegativeButton("No") { dialog, id ->
+                    message("Not saved.")
+                }
+            val alert = dialogBuilder.create()
+            alert.setTitle("Save Alert")
+            alert.show()
         }
 
         button3.setOnClickListener {
@@ -57,18 +68,7 @@ class MainActivity : AppCompatActivity() {
 
         button4.setOnClickListener {
             message("")
-            val dialogBuilder = AlertDialog.Builder(this)
-            dialogBuilder.setMessage("Are you sure?")
-                .setCancelable(false)
-                .setPositiveButton("Yes") { dialog, id ->
-                    onClick("saved")
-                }
-                .setNegativeButton("No") { dialog, id ->
-                    message("Not saved.")
-                }
-            val alert = dialogBuilder.create()
-            alert.setTitle("Save Alert")
-            alert.show()
+            onClick("saved")
         }
     }
 }

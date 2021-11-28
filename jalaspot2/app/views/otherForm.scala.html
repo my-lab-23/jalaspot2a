@@ -1,0 +1,20 @@
+@(labelForm: Form[LabelForm])(implicit messages: Messages)
+@import helper._
+@import my_web.MyWeb._
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Jalaspot</title>
+  <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+</head>
+<body>
+  <h3>Jalaspot</h3>
+  @Html(MyOther.ls)
+  @form(action = routes.OtherController.otherFormPost()) {
+  @helper.inputText(labelForm("label"), '_label -> null, 'placeholder -> "label")
+  <input type="submit" value="Submit">
+  }
+</body>
+</html>

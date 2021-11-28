@@ -1,0 +1,20 @@
+@import my_web.MyWeb._
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>@MyIndex.title</title>
+    <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+</head>
+<body>
+    <div class="row">
+        <div class="column">
+            <h3>@Html(MyIndex.link1)</h3>
+        </div>
+        <div class="column">
+            <h3>@Html(MyIndex.link2)</h3>
+        </div>
+    </div>
+</body>
+</html>
